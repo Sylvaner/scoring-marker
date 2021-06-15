@@ -10,6 +10,12 @@ const teams = [
 ];
 
 // eslint-disable-next-line no-unused-vars
+function confirmReset () {
+  if (confirm('Do you want to reset scores ?')) {
+    resetScores();
+  }
+}
+
 function resetScores () {
   setTeamScore(0, 0);
   setTeamScore(1, 0);

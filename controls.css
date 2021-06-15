@@ -1,0 +1,72 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.content,
+.name,
+.score {
+    display: flex;
+    flex-direction: row;
+}
+
+.team {
+    flex-grow: 1;
+    margin: 1rem;
+}
+
+.name input {
+    flex: 3;
+    height: 3rem;
+    margin-right: 1rem;
+    line-height: 3rem;
+    font-size: 1.5rem;
+}
+
+.name button {
+    flex: 1;
+}
+
+.score {
+    margin: 1rem 0;
+}
+
+.score > div {
+    flex-grow: 1;
+    margin: 0 0.5rem;
+}
+
+.score > div:first-child {
+    margin-left: 0;
+}
+
+.score > div:last-child {
+    margin-right: 0;
+}
+
+.reset {
+    margin: 0 1rem;
+}
+
+button {
+    background-color: rgb(59, 93, 196);
+    color: white;
+    text-shadow: 1px 1px 1px rgb(0 0 0 / 50%);
+    box-shadow: 0px 5px 3px rgb(0 0 0 / 30%);
+    border-radius: 0.5rem;
+    border: none;
+    width: 100%;
+    min-height: 3rem;
+    outline: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+button:active {
+    background-color: rgb(74, 105, 197);
+}
+
+tr {
+    margin-top: 1rem;
+}

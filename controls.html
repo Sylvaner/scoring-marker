@@ -3,31 +3,38 @@
   <head>
     <meta charset="UTF-8">
     <title>Scoring Marker Controls</title>
+    <link rel="stylesheet" href="controls.css">
   </head>
   <body>
-    <table>
-      <tbody>
-        <tr>
-          <td colspan="3"><input id="team-name0" type="text" /></td>
-          <td><button onclick="setTeamName(0)">Save</button></td>
-          <td colspan="3"><input id="team-name1" type="text" /></td>
-          <td><button onclick="setTeamName(1)">Save</button></td>
-        </tr>
-        <tr>
-          <td><button onclick="addPointsToTeamScore(0, 2)">+2</button></td>
-          <td><button onclick="addPointsToTeamScore(0, 1)">+1</button></td>
-          <td><button onclick="addPointsToTeamScore(0, -1)">-1</button></td>
-          <td><button onclick="addPointsToTeamScore(0, -2)">-2</button></td>
-          <td><button onclick="addPointsToTeamScore(1, 2)">+2</button></td>
-          <td><button onclick="addPointsToTeamScore(1, 1)">+1</button></td>
-          <td><button onclick="addPointsToTeamScore(1, -1)">-1</button></td>
-          <td><button onclick="addPointsToTeamScore(1, -2)">-2</button></td>
-        </tr>
-        <tr>
-          <td colspan="8"><button onclick="resetScores()">Remise à zéro</button></td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="content">
+      <div class="team">
+        <div class="name">
+          <input id="team-name0" type="text" />
+          <button onclick="setTeamName(0)">Save</button>
+        </div>
+        <div class="score">
+          <div><button onclick="addPointsToTeamScore(0, 2)">+2</button></div>
+          <div><button onclick="addPointsToTeamScore(0, 1)">+1</button></div>
+          <div><button onclick="addPointsToTeamScore(0, -1)">-1</button></div>
+          <div><button onclick="addPointsToTeamScore(0, -2)">-2</button></div>
+        </div>
+      </div>
+      <div class="team">
+        <div class="name">
+          <input id="team-name1" type="text" />
+          <button onclick="setTeamName(1)">Save</button>
+        </div>
+        <div class="score">
+          <div><button onclick="addPointsToTeamScore(1, 2)">+2</button></div>
+          <div><button onclick="addPointsToTeamScore(1, 1)">+1</button></div>
+          <div><button onclick="addPointsToTeamScore(1, -1)">-1</button></div>
+          <div><button onclick="addPointsToTeamScore(1, -2)">-2</button></div>
+        </div>
+      </div>
+    </div>
+    <div class="reset">
+      <div><button onclick="confirmReset()">Reset scores</button></div>
+    </div>
     <script src="./controls.js"></script>
   </body>
 </html>

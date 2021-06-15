@@ -32,7 +32,6 @@ function createScoringWindow () {
   });
   scoringWindow.setMenuBarVisibility(false);
   scoringWindow.loadFile('scoring.html');
-  scoringWindow.webContents.openDevTools();
 }
 
 function createWindows () {
