@@ -1,60 +1,65 @@
-// main.js
+const { app, BrowserWindow, ipcMain } = require('electron');
+const path = require('path');
 
-// Modules pour controler la vie de l'application et créer une fenêtre de navigation native
-const { app, BrowserWindow } = require('electron')
-//const path = require('path')
+let scoringWindow = null;
 
 function createControlsWindow () {
-    // Créer la fenêtre de navigation.
-    const controlWindow = new BrowserWindow({
-      width: 800,
-      height: 600,
-      webPreferences: {
-  //      preload: path.join(__dirname, 'preload.js')
-      }
-    })
-  
-    // et charger l'index.html de l'application.
-    controlWindow.loadFile('controls.html')
-  
-    // Ouvrir les outils de développement.
-    // mainWindow.webContents.openDevTools()
-  }
-  
+  const controlsWindow = new BrowserWindow({
+    width: 800,
+    height: 600,
+    center: true,
+    webPreferences: {
+      nodeIntegration: false,
+      contextIsolation: true,
+      enableRemoteModule: false,
+      preload: path.join(__dirname, 'controls-preload.js')
+    }
+  });
+
+  controlsWindow.loadFile('controls.html');
+  controlsWindow.webContents.openDevTools();
+}
+
 function createScoringWindow () {
-    // Créer la fenêtre de navigation.
-    const scoringWindow = new BrowserWindow({
-      width: 800,
-      height: 600,
-      webPreferences: {
-  //      preload: path.join(__dirname, 'preload.js')
-      }
-    })
-  
-    // et charger l'index.html de l'application.
-    scoringWindow.loadFile('scoring.html')
-  
-    // Ouvrir les outils de développement.
-    // mainWindow.webContents.openDevTools()
-  }
-  
-  // Cette méthode sera appelée quand Electron aura fini
-// de s'initialiser et sera prêt à créer des fenêtres de navigation.
-// Certaines APIs peuvent être utilisées uniquement quant cet événement est émit.
+  scoringWindow = new BrowserWindow({
+    width: 400,
+    height: 300,
+    x: 0,
+    y: 0,
+    webPreferences: {
+      preload: path.join(__dirname, 'scoring-preload.js')
+    }
+  });
+
+  scoringWindow.loadFile('scoring.html');
+  scoringWindow.webContents.openDevTools();
+}
+
+function createWindows () {
+  createControlsWindow();
+  createScoringWindow();
+}
+
 app.whenReady().then(() => {
-    createControlsWindow()
-    createScoringWindow()
+  createWindows();
 
   app.on('activate', function () {
-    // Sur macOS il est d'usage de recréer une fenêtre dans l'application quand
-    // l'icône du dock est cliquée et qu'il n'y a pas d'autre fenêtre ouverte.
-    if (BrowserWindow.getAllWindows().length === 0) createWindow()
-  })
-})
+    if (BrowserWindow.getAllWindows().length === 0) {
+      createWindows();
+    }
+  });
 
-// Quitter quand toutes les fenêtres sont fermées, sauf sur macOS. Sur macOS, il est courant
-// pour les applications et leur barre de menu de rester actives jusqu’à ce que l’utilisateur quitte
-// explicitement avec Cmd + Q.
+  ipcMain.on('updateTeamScore', (_, scoreData) => {
+    scoringWindow.webContents.send('updateScore', scoreData);
+  });
+
+  ipcMain.on('updateTeamName', (_, nameData) => {
+    scoringWindow.webContents.send('updateName', nameData);
+  });
+});
+
 app.on('window-all-closed', function () {
-  if (process.platform !== 'darwin') app.quit()
-})
+  if (process.platform !== 'darwin') {
+    app.quit();
+  }
+});

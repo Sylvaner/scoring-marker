@@ -5,11 +5,17 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ."
+    "start": "electron .",
+    "eslint": "eslint ."
   },
   "author": "Sylvain DANGIN",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^13.1.2"
+    "electron": "^13.1.2",
+    "eslint": "^7.28.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0"
   }
 }

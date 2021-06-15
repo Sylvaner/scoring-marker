@@ -2,11 +2,32 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <title>Hello World!</title>
+    <title>Scoring Marker Controls</title>
   </head>
   <body>
-    Controls
+    <table>
+      <tbody>
+        <tr>
+          <td colspan="3"><input id="team-name0" type="text" /></td>
+          <td><button onclick="setTeamName(0)">Save</button></td>
+          <td colspan="3"><input id="team-name1" type="text" /></td>
+          <td><button onclick="setTeamName(1)">Save</button></td>
+        </tr>
+        <tr>
+          <td><button onclick="addPointsToTeamScore(0, 2)">+2</button></td>
+          <td><button onclick="addPointsToTeamScore(0, 1)">+1</button></td>
+          <td><button onclick="addPointsToTeamScore(0, -1)">-1</button></td>
+          <td><button onclick="addPointsToTeamScore(0, -2)">-2</button></td>
+          <td><button onclick="addPointsToTeamScore(1, 2)">+2</button></td>
+          <td><button onclick="addPointsToTeamScore(1, 1)">+1</button></td>
+          <td><button onclick="addPointsToTeamScore(1, -1)">-1</button></td>
+          <td><button onclick="addPointsToTeamScore(1, -2)">-2</button></td>
+        </tr>
+        <tr>
+          <td colspan="8"><button onclick="resetScores()">Remise à zéro</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <script src="./controls.js"></script>
   </body>
 </html>

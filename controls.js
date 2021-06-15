@@ -1,0 +1,50 @@
+const teams = [
+  {
+    name: 'Team 1',
+    score: 0
+  },
+  {
+    name: 'Team 2',
+    score: 0
+  }
+];
+
+// eslint-disable-next-line no-unused-vars
+function resetScores () {
+  setTeamScore(0, 0);
+  setTeamScore(1, 0);
+}
+
+function setTeamScore (teamIndex, newScore) {
+  teams[teamIndex].score = newScore;
+  sendScoreUpdate(teamIndex);
+}
+
+// eslint-disable-next-line no-unused-vars
+function addPointsToTeamScore (teamIndex, points) {
+  teams[teamIndex].score += points;
+  sendScoreUpdate(teamIndex);
+}
+
+function sendScoreUpdate (teamIndex) {
+  window.api.updateTeamScore(teamIndex, teams[teamIndex].score);
+}
+
+// eslint-disable-next-line no-unused-vars
+function setTeamName (teamIndex) {
+  const newName = document.getElementById('team-name' + teamIndex).value;
+  teams[teamIndex].name = newName;
+  sendNameUpdate(teamIndex);
+}
+
+function sendNameUpdate (teamIndex) {
+  window.api.updateTeamName(teamIndex, teams[teamIndex].name);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  for (let teamIndex = 0; teamIndex < 2; ++teamIndex) {
+    document.getElementById('team-name' + teamIndex).value = teams[teamIndex].name;
+    sendScoreUpdate(teamIndex);
+    sendNameUpdate(teamIndex);
+  }
+});
