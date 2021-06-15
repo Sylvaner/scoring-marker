@@ -15,7 +15,7 @@ function createControlsWindow () {
       preload: path.join(__dirname, 'controls-preload.js')
     }
   });
-
+  controlsWindow.setMenuBarVisibility(false);
   controlsWindow.loadFile('controls.html');
   controlsWindow.webContents.openDevTools();
 }
@@ -30,7 +30,7 @@ function createScoringWindow () {
       preload: path.join(__dirname, 'scoring-preload.js')
     }
   });
-
+  scoringWindow.setMenuBarVisibility(false);
   scoringWindow.loadFile('scoring.html');
   scoringWindow.webContents.openDevTools();
 }
