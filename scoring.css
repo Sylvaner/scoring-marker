@@ -1,0 +1,43 @@
+* {
+    font-family: sans-serif;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+#scores,
+#names {
+    display: flex;
+    flex-direction: row;
+    background-color: #FAFAFA;
+}
+
+#scores > div,
+#names > div {
+    flex: 1;
+    text-align: center;
+    text-shadow: 1px 1px 1px #999999;
+}
+
+#scores > div {
+    font-size: 5rem;
+    line-height: 5rem;
+}
+
+#scores > div:first-child,
+#names > div:first-child {
+    border-right: 3px solid black;
+}
+
+#scores > div:last-child,
+#names > div:last-child {
+    border-left: 3px solid black;
+}
+
+#names > div {
+    padding-top: 0.5rem;
+    font-size: 2rem;
+    font-weight: bold;
+}

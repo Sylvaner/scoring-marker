@@ -6,7 +6,7 @@ let scoringWindow = null;
 function createControlsWindow () {
   const controlsWindow = new BrowserWindow({
     width: 800,
-    height: 600,
+    height: 280,
     center: true,
     webPreferences: {
       nodeIntegration: false,
@@ -16,13 +16,14 @@ function createControlsWindow () {
     }
   });
   controlsWindow.setMenuBarVisibility(false);
+  controlsWindow.setResizable(false);
   controlsWindow.loadFile('controls.html');
 }
 
 function createScoringWindow () {
   scoringWindow = new BrowserWindow({
     width: 400,
-    height: 300,
+    height: 165,
     x: 0,
     y: 0,
     webPreferences: {
