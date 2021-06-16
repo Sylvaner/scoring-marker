@@ -11,6 +11,9 @@ contextBridge.exposeInMainWorld(
     },
     toggleFrameDecoration: () => {
       ipcRenderer.send('toggleFrameDecoration');
+    },
+    toggleAlwaysOnTop: () => {
+      ipcRenderer.send('toggleAlwaysOnTop');
     }
   }
 );

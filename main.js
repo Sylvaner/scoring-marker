@@ -5,6 +5,7 @@ const FRAME_TITLE_SIZE = 40;
 let scoringWindow = null;
 let frameDecorationShowed = true;
 let scoresWindowPosition = [0, 0];
+let alwaysOnTop = false;
 
 function createControlsWindow () {
   const controlsWindow = new BrowserWindow({
@@ -36,6 +37,14 @@ function createScoringWindow () {
   });
   scoringWindow.setMenuBarVisibility(false);
   scoringWindow.loadFile('scoring.html');
+}
+
+function destroyAndCreateScoringWindow () {
+  if (!scoringWindow.isDestroyed()) {
+    scoresWindowPosition = scoringWindow.getPosition();
+    scoringWindow.close();
+  }
+  createScoringWindow();
 }
 
 function getScoringFrameHeight () {
@@ -76,11 +85,12 @@ function initMessages () {
 
   ipcMain.on('toggleFrameDecoration', (_event, _args) => {
     frameDecorationShowed = !frameDecorationShowed;
-    if (!scoringWindow.isDestroyed()) {
-      scoresWindowPosition = scoringWindow.getPosition();
-      scoringWindow.close();
-    }
-    createScoringWindow();
+    destroyAndCreateScoringWindow();
+  });
+
+  ipcMain.on('toggleAlwaysOnTop', (_event, _args) => {
+    alwaysOnTop = !alwaysOnTop;
+    scoringWindow.setAlwaysOnTop(alwaysOnTop);
   });
 }
 

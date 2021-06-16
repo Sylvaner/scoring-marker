@@ -50,9 +50,12 @@ function sendNameUpdate (teamIndex) {
 // eslint-disable-next-line no-unused-vars
 function toggleFrameDecoration () {
   window.api.toggleFrameDecoration();
-  setTimeout(() => {
-    sendAllData();
-  }, 1000);
+  sendAllData();
+}
+
+// eslint-disable-next-line no-unused-vars
+function toggleAlwaysOnTop () {
+  window.api.toggleAlwaysOnTop();
 }
 
 function sendAllData () {
