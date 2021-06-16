@@ -3,7 +3,7 @@ name: CI
 on: [push, pull_request]
 
 jobs:
-  build_on_linux:
+  check:
     runs-on: ubuntu-latest
 
     steps:
@@ -27,36 +27,3 @@ jobs:
           Xvfb :99 -screen 0 1280x1024x24 > /dev/null 2>&1 &
           npm run test
       
-      - name: Build and publish
-        uses: samuelmeuli/action-electron-builder@v1
-        with:
-          github_token: ${{ secrets.github_token }}
-
-
-  build_on_mac:
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@master
-
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 15
-      
-      - name: Build and publish
-        uses: samuelmeuli/action-electron-builder@v1
-        with:
-          github_token: ${{ secrets.github_token }}
-
-  build_on_windows:
-    runs-on: windows-2016
-    steps:
-      - uses: actions/checkout@master
-
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 15
-      
-      - name: Build and publish
-        uses: samuelmeuli/action-electron-builder@v1
-        with:
-          github_token: ${{ secrets.github_token }}
