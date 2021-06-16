@@ -8,7 +8,8 @@
     "start": "electron .",
     "eslint": "eslint .",
     "eslint:fix": "eslint . --fix",
-    "build": "electron-builder build --publish never"
+    "build": "electron-builder build --publish never",
+    "publish": "electron-builder build"
   },
   "author": "Sylvain DANGIN",
   "license": "ISC",
