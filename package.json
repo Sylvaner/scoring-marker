@@ -9,7 +9,7 @@
     "eslint": "eslint .",
     "eslint:fix": "eslint . --fix",
     "build": "electron-builder build --publish never",
-    "publish": "electron-builder build"
+    "publish": "electron-builder build --publish always"
   },
   "author": "Sylvain DANGIN",
   "license": "ISC",
