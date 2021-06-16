@@ -1,6 +1,6 @@
 {
   "name": "scoring-marker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Display scoring",
   "main": "main.js",
   "scripts": {
@@ -29,6 +29,12 @@
     "productName": "Scoring Marker",
     "copyright": "Sylvain DANGIN",
     "win": {
+      "icon": "assets/icon.png"
+    },
+    "linux": {
+      "icon": "assets/icon.png"
+    },
+    "mac": {
       "icon": "assets/icon.png"
     }
   },
