@@ -1,3 +1,7 @@
+* {
+    font-family: sans-serif;
+}
+
 html, body {
     margin: 0;
     padding: 0;
@@ -43,8 +47,13 @@ html, body {
     margin-right: 0;
 }
 
-.reset {
+.reset,
+.extra {
     margin: 0 1rem;
+}
+
+.extra {
+    margin-top: 1rem;
 }
 
 button {

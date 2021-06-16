@@ -50,12 +50,21 @@ function sendNameUpdate (teamIndex) {
 // eslint-disable-next-line no-unused-vars
 function toggleFrameDecoration () {
   window.api.toggleFrameDecoration();
+  setTimeout(() => {
+    sendAllData();
+  }, 1000);
+}
+
+function sendAllData () {
+  for (let teamIndex = 0; teamIndex < 2; ++teamIndex) {
+    sendScoreUpdate(teamIndex);
+    sendNameUpdate(teamIndex);
+  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   for (let teamIndex = 0; teamIndex < 2; ++teamIndex) {
     document.getElementById('team-name' + teamIndex).value = teams[teamIndex].name;
-    sendScoreUpdate(teamIndex);
-    sendNameUpdate(teamIndex);
   }
+  sendAllData();
 });

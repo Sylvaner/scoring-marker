@@ -7,8 +7,8 @@ let frameDecorationShowed = true;
 
 function createControlsWindow () {
   const controlsWindow = new BrowserWindow({
-    width: 800,
-    height: 280,
+    width: 820,
+    height: 320,
     center: true,
     webPreferences: {
       nodeIntegration: false,
@@ -20,7 +20,6 @@ function createControlsWindow () {
   controlsWindow.setMenuBarVisibility(false);
   controlsWindow.setResizable(false);
   controlsWindow.loadFile('controls.html');
-  controlsWindow.openDevTools();
 }
 
 function createScoringWindow () {
