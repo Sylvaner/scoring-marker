@@ -4,6 +4,7 @@ const path = require('path');
 const FRAME_TITLE_SIZE = 40;
 let scoringWindow = null;
 let frameDecorationShowed = true;
+let scoresWindowPosition = [0, 0];
 
 function createControlsWindow () {
   const controlsWindow = new BrowserWindow({
@@ -26,8 +27,8 @@ function createScoringWindow () {
   scoringWindow = new BrowserWindow({
     width: 400,
     height: getScoringFrameHeight(),
-    x: 0,
-    y: 0,
+    x: scoresWindowPosition[0],
+    y: scoresWindowPosition[1],
     frame: frameDecorationShowed,
     webPreferences: {
       preload: path.join(__dirname, 'scoring-preload.js')
@@ -76,6 +77,7 @@ function initMessages () {
   ipcMain.on('toggleFrameDecoration', (_event, _args) => {
     frameDecorationShowed = !frameDecorationShowed;
     if (!scoringWindow.isDestroyed()) {
+      scoresWindowPosition = scoringWindow.getPosition();
       scoringWindow.close();
     }
     createScoringWindow();
