@@ -8,6 +8,9 @@ contextBridge.exposeInMainWorld(
     },
     updateTeamName: (teamIndex, newName) => {
       ipcRenderer.send('updateTeamName', { team: teamIndex, name: newName });
+    },
+    toggleFrameDecoration: () => {
+      ipcRenderer.send('toggleFrameDecoration');
     }
   }
 );

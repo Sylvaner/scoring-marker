@@ -47,6 +47,11 @@ function sendNameUpdate (teamIndex) {
   window.api.updateTeamName(teamIndex, teams[teamIndex].name);
 }
 
+// eslint-disable-next-line no-unused-vars
+function toggleFrameDecoration () {
+  window.api.toggleFrameDecoration();
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   for (let teamIndex = 0; teamIndex < 2; ++teamIndex) {
     document.getElementById('team-name' + teamIndex).value = teams[teamIndex].name;

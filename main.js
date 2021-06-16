@@ -1,7 +1,9 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 
+const FRAME_TITLE_SIZE = 40;
 let scoringWindow = null;
+let frameDecorationShowed = true;
 
 function createControlsWindow () {
   const controlsWindow = new BrowserWindow({
@@ -18,20 +20,30 @@ function createControlsWindow () {
   controlsWindow.setMenuBarVisibility(false);
   controlsWindow.setResizable(false);
   controlsWindow.loadFile('controls.html');
+  controlsWindow.openDevTools();
 }
 
 function createScoringWindow () {
   scoringWindow = new BrowserWindow({
     width: 400,
-    height: 165,
+    height: getScoringFrameHeight(),
     x: 0,
     y: 0,
+    frame: frameDecorationShowed,
     webPreferences: {
       preload: path.join(__dirname, 'scoring-preload.js')
     }
   });
   scoringWindow.setMenuBarVisibility(false);
   scoringWindow.loadFile('scoring.html');
+}
+
+function getScoringFrameHeight () {
+  let frameHeight = 125;
+  if (frameDecorationShowed) {
+    frameHeight += FRAME_TITLE_SIZE;
+  }
+  return frameHeight;
 }
 
 function createWindows () {
@@ -46,14 +58,6 @@ function initEvents () {
     }
   });
 
-  ipcMain.on('updateTeamScore', (_, scoreData) => {
-    scoringWindow.webContents.send('updateScore', scoreData);
-  });
-
-  ipcMain.on('updateTeamName', (_, nameData) => {
-    scoringWindow.webContents.send('updateName', nameData);
-  });
-
   app.on('window-all-closed', function () {
     if (process.platform !== 'darwin') {
       app.quit();
@@ -61,7 +65,26 @@ function initEvents () {
   });
 }
 
+function initMessages () {
+  ipcMain.on('updateTeamScore', (_event, scoreData) => {
+    scoringWindow.webContents.send('updateScore', scoreData);
+  });
+
+  ipcMain.on('updateTeamName', (_event, nameData) => {
+    scoringWindow.webContents.send('updateName', nameData);
+  });
+
+  ipcMain.on('toggleFrameDecoration', (_event, _args) => {
+    frameDecorationShowed = !frameDecorationShowed;
+    if (!scoringWindow.isDestroyed()) {
+      scoringWindow.close();
+    }
+    createScoringWindow();
+  });
+}
+
 app.whenReady().then(() => {
   createWindows();
   initEvents();
+  initMessages();
 });
