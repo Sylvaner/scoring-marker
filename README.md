@@ -7,6 +7,10 @@
 Display two scores and control the points from another window.
 Ideal for a dual screen display or integration into a video with [OBS Studio](https://obsproject.com/).
 
+## Download
+
+[Downloads for all operating systems](https://github.com/Sylvaner/scoring-marker/releases)
+
 ## Features
 
 * Manage the scores of 2 teams
@@ -53,6 +57,10 @@ https://www.sdangin.fr
 
 Afficher un score et contrôler les points à partir d'une autre fenêtre.
 Idéal pour un affichage en double écran ou pour une intégration dans une vidéo avec [OBS Studio](https://obsproject.com/) par exemple.
+
+## Téléchargements
+
+[Téléchargements pour toutes les systèmes d'exploitation](https://github.com/Sylvaner/scoring-marker/releases)
 
 ## Fonctionnalités
 
