@@ -4,9 +4,10 @@
   "description": "Display scoring",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --forceExit --detectOpenHandles",
     "start": "electron .",
     "eslint": "eslint .",
+    "eslint:fix": "eslint . --fix",
     "build": "electron-builder build --publish never"
   },
   "author": "Sylvain DANGIN",
@@ -18,11 +19,16 @@
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^5.1.0"
+    "eslint-plugin-promise": "^5.1.0",
+    "jest": "^27.0.4",
+    "spectron": "^15.0.0"
   },
   "build": {
     "appId": "fr.sdangin.scoring",
     "productName": "Scoring Marker",
     "copyright": "Sylvain DANGIN"
+  },
+  "jest": {
+    "testMatch": ["<rootDir>/tests/*.js"]
   }
 }

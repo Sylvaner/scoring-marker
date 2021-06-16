@@ -1,12 +1,6 @@
 name: CI
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
-  workflow_dispatch:
+on: [push, pull_request]
 
 jobs:
   build:
@@ -18,6 +12,8 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 15
+      - name: Install headless run dependencies
+        run: sudo apt-get install -y xvfb 
 
       - name: Install dependencies
         run: npm install
@@ -25,5 +21,11 @@ jobs:
       - name: Eslint
         run: npm run eslint
 
+      - name: Tests
+        run: |
+          export DISPLAY=':99.0'
+          Xvfb :99 -screen 0 1280x1024x24 > /dev/null 2>&1 &
+          npm run test
+      
       - name: Build
         run: npm run build
