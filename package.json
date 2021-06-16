@@ -1,8 +1,10 @@
 {
   "name": "scoring-marker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Display scoring",
   "main": "main.js",
+  "email": "scoring-marker@nodomain.com",
+  "url": "https://github.com/Sylvaner/scoring-marker",
   "scripts": {
     "test": "jest --forceExit --detectOpenHandles",
     "start": "electron .",
@@ -28,7 +30,23 @@
     "appId": "fr.sdangin.scoring",
     "productName": "Scoring Marker",
     "copyright": "Sylvain DANGIN",
+    "publish": [
+      {
+        "provider": "github"
+      }
+    ],
     "win": {
+      "icon": "assets/icon.png"
+    },
+    "linux": {
+      "icon": "assets/icon.png",
+      "target": [
+        "AppImage"
+      ],
+      "category": "Utility",
+      "maintainer": "scoring-marker@nodomain.com"
+    },
+    "mac": {
       "icon": "assets/icon.png"
     }
   },
