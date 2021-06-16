@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   sodipodi:docname="icon.svg"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   inkscape:export-filename="C:\Users\sylvain.dangin\Documents\projets\scoring-marker\assets\icon.png"
+   inkscape:export-xdpi="50.799976"
+   inkscape:export-ydpi="50.799976"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#cccccc"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="1"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1.0482005"
+     inkscape:cx="268.07849"
+     inkscape:cy="349.64685"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#dbe8f4;fill-rule:evenodd;stroke:#000000;stroke-width:5.7314;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill;fill-opacity:1"
+       id="rect31"
+       width="122.26866"
+       height="122.26866"
+       x="2.8657022"
+       y="2.8657"
+       inkscape:export-filename="C:\Users\sylvain.dangin\Documents\projets\scoring-marker\assets\icon.png"
+       inkscape:export-xdpi="50.799976"
+       inkscape:export-ydpi="50.799976" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:6;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+       id="rect5682"
+       width="4.6638975"
+       height="31.413462"
+       x="61.744373"
+       y="63.459099"
+       inkscape:export-filename="C:\Users\sylvain.dangin\Documents\projets\scoring-marker\assets\icon.png"
+       inkscape:export-xdpi="50.799976"
+       inkscape:export-ydpi="50.799976" />
+    <rect
+       style="fill:#f4f4f4;fill-opacity:1;stroke:#000000;stroke-width:10.48;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+       id="rect5472"
+       width="104.59255"
+       height="31.234976"
+       x="11.964825"
+       y="25.745949"
+       inkscape:export-filename="C:\Users\sylvain.dangin\Documents\projets\scoring-marker\assets\icon.png"
+       inkscape:export-xdpi="50.799976"
+       inkscape:export-ydpi="50.799976" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:6;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+       id="rect5576"
+       width="37.833412"
+       height="5.8334165"
+       x="45.08329"
+       y="101.09589"
+       inkscape:export-filename="C:\Users\sylvain.dangin\Documents\projets\scoring-marker\assets\icon.png"
+       inkscape:export-xdpi="50.799976"
+       inkscape:export-ydpi="50.799976" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:6;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+       id="rect5578"
+       width="27.879246"
+       height="5.87925"
+       x="50.060379"
+       y="95.072945"
+       inkscape:export-filename="C:\Users\sylvain.dangin\Documents\projets\scoring-marker\assets\icon.png"
+       inkscape:export-xdpi="50.799976"
+       inkscape:export-ydpi="50.799976" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:31.75px;line-height:3;font-family:sans-serif;text-align:center;letter-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.660691"
+       x="63.707687"
+       y="52.595188"
+       id="text2644"
+       inkscape:export-filename="C:\Users\sylvain.dangin\Documents\projets\scoring-marker\assets\icon.png"
+       inkscape:export-xdpi="50.799976"
+       inkscape:export-ydpi="50.799976"><tspan
+         sodipodi:role="line"
+         id="tspan2642"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:31.75px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:center;text-anchor:middle;stroke-width:0.660691"
+         x="63.707687"
+         y="52.595188">0 - 2</tspan></text>
+  </g>
+</svg>

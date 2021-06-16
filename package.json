@@ -26,7 +26,10 @@
   "build": {
     "appId": "fr.sdangin.scoring",
     "productName": "Scoring Marker",
-    "copyright": "Sylvain DANGIN"
+    "copyright": "Sylvain DANGIN",
+    "win": {
+      "icon": "assets/icon.png"
+    }
   },
   "jest": {
     "testMatch": ["<rootDir>/tests/*.js"]
