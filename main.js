@@ -17,7 +17,6 @@ function createControlsWindow () {
   });
   controlsWindow.setMenuBarVisibility(false);
   controlsWindow.loadFile('controls.html');
-  controlsWindow.webContents.openDevTools();
 }
 
 function createScoringWindow () {
@@ -39,9 +38,7 @@ function createWindows () {
   createScoringWindow();
 }
 
-app.whenReady().then(() => {
-  createWindows();
-
+function initEvents () {
   app.on('activate', function () {
     if (BrowserWindow.getAllWindows().length === 0) {
       createWindows();
@@ -55,10 +52,15 @@ app.whenReady().then(() => {
   ipcMain.on('updateTeamName', (_, nameData) => {
     scoringWindow.webContents.send('updateName', nameData);
   });
-});
 
-app.on('window-all-closed', function () {
-  if (process.platform !== 'darwin') {
-    app.quit();
-  }
+  app.on('window-all-closed', function () {
+    if (process.platform !== 'darwin') {
+      app.quit();
+    }
+  });
+}
+
+app.whenReady().then(() => {
+  createWindows();
+  initEvents();
 });
