@@ -46,16 +46,20 @@ function destroyAndCreateScoringWindow () {
   createScoringWindow();
 }
 
+/**
+ * Window height must be calculated, the titlebar is included in the height.
+ * @returns Height of the window
+ */
 function getScoringWindowHeight () {
-  let frameHeight = 125;
+  let windowHeight = 125;
   if (frameDecorationShowed) {
     if (process.platform === 'darwin') {
-      frameHeight += 30;
+      windowHeight += 30;
     } else {
-      frameHeight += 40;
+      windowHeight += 40;
     }
   }
-  return frameHeight;
+  return windowHeight;
 }
 
 function createWindows () {
