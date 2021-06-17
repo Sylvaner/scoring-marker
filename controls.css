@@ -24,6 +24,7 @@ html, body {
     height: 3rem;
     margin-right: 1rem;
     font-size: 1.5rem;
+    border-radius: 0.5rem;
 }
 
 .name button {
@@ -45,6 +46,10 @@ html, body {
 
 .score > div:last-child {
     margin-right: 0;
+}
+
+.score button {
+    height: 5rem;
 }
 
 .reset,

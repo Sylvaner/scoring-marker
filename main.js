@@ -9,7 +9,7 @@ let alwaysOnTop = false;
 function createControlsWindow () {
   const controlsWindow = new BrowserWindow({
     width: 820,
-    height: 320,
+    height: 340,
     center: true,
     webPreferences: {
       nodeIntegration: false,
