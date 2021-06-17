@@ -1,7 +1,6 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 
-const FRAME_TITLE_SIZE = 40;
 let scoringWindow = null;
 let frameDecorationShowed = true;
 let scoresWindowPosition = [0, 0];
@@ -27,7 +26,7 @@ function createControlsWindow () {
 function createScoringWindow () {
   scoringWindow = new BrowserWindow({
     width: 400,
-    height: getScoringFrameHeight(),
+    height: getScoringWindowHeight(),
     x: scoresWindowPosition[0],
     y: scoresWindowPosition[1],
     frame: frameDecorationShowed,
@@ -47,10 +46,14 @@ function destroyAndCreateScoringWindow () {
   createScoringWindow();
 }
 
-function getScoringFrameHeight () {
+function getScoringWindowHeight () {
   let frameHeight = 125;
   if (frameDecorationShowed) {
-    frameHeight += FRAME_TITLE_SIZE;
+    if (process.platform === 'darwin') {
+      frameHeight += 30;
+    } else {
+      frameHeight += 40;
+    }
   }
   return frameHeight;
 }
