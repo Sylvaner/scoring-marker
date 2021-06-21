@@ -5,7 +5,12 @@ ipcRenderer.on('updateScore', (_, scoreData) => {
 });
 
 function getTwoDigitsNumber (numberToParse) {
-  if (numberToParse < 10) {
+  // Negative numbers between -10 and 0
+  if (numberToParse < 0) {
+    if (numberToParse > -10) {
+      return '-0' + (-numberToParse);
+    }
+  } else if (numberToParse < 10) {
     return '0' + numberToParse;
   }
   return numberToParse;

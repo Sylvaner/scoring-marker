@@ -36,10 +36,14 @@
       <div><button onclick="confirmReset()">Reset scores</button></div>
     </div>
     <div class="extra">
-      <label for="decoration-checkbox">Remove frame decoration</label>
-      <input type="checkbox" id="decoration-checkbox" onchange="toggleFrameDecoration()" />
-      <label for="alwaysontop-checkbox">Always on top</label>
-      <input type="checkbox" id="alwaysontop-checkbox" onchange="toggleAlwaysOnTop()" />
+      <div class="pull-left">
+        <label for="decoration-checkbox">Remove frame decoration</label>
+        <input type="checkbox" id="decoration-checkbox" onchange="toggleFrameDecoration()" />
+      </div>
+      <div class="pull-right">
+        <label for="alwaysontop-checkbox">Always on top</label>
+        <input type="checkbox" id="alwaysontop-checkbox" onchange="toggleAlwaysOnTop()" />
+      </div>
     </div>
     <script src="./controls.js"></script>
   </body>
