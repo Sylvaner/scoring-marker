@@ -59,14 +59,14 @@ function toggleAlwaysOnTop () {
 }
 
 function sendAllData () {
-  for (let teamIndex = 0; teamIndex < 2; ++teamIndex) {
+  for (const teamIndex in teams) {
     sendScoreUpdate(teamIndex);
     sendNameUpdate(teamIndex);
   }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  for (let teamIndex = 0; teamIndex < 2; ++teamIndex) {
+  for (const teamIndex in teams) {
     document.getElementById('team-name' + teamIndex).value = teams[teamIndex].name;
   }
   sendAllData();

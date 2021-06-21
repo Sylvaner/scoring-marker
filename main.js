@@ -7,7 +7,7 @@ let scoresWindowPosition = [0, 0];
 let alwaysOnTop = false;
 
 function createControlsWindow () {
-  const controlsWindow = new BrowserWindow({
+  createWindow({
     width: 820,
     height: 340,
     center: true,
@@ -17,15 +17,11 @@ function createControlsWindow () {
       enableRemoteModule: false,
       preload: path.join(__dirname, 'controls-preload.js')
     }
-  });
-  controlsWindow.setMenuBarVisibility(false);
-  controlsWindow.setResizable(false);
-  controlsWindow.loadFile('controls.html');
-  controlsWindow.on('close', quitApp);
+  }, 'controls.html');
 }
 
 function createScoringWindow () {
-  scoringWindow = new BrowserWindow({
+  scoringWindow = createWindow({
     width: 400,
     height: getScoringWindowHeight(),
     x: scoresWindowPosition[0],
@@ -34,15 +30,22 @@ function createScoringWindow () {
     webPreferences: {
       preload: path.join(__dirname, 'scoring-preload.js')
     }
-  });
-  scoringWindow.setMenuBarVisibility(false);
-  scoringWindow.loadFile('scoring.html');
-  scoringWindow.on('close', quitApp);
+  }, 'scoring.html');
+}
+
+function createWindow (options, htmlFile) {
+  const targetWindow = new BrowserWindow(options);
+  targetWindow.setMenuBarVisibility(false);
+  targetWindow.loadFile(htmlFile);
+  targetWindow.setResizable(false);
+  targetWindow.on('close', quitApp);
+  return targetWindow;
 }
 
 function destroyAndCreateScoringWindow () {
   if (!scoringWindow.isDestroyed()) {
     scoresWindowPosition = scoringWindow.getPosition();
+    scoringWindow.removeListener('close', quitApp);
     scoringWindow.close();
   }
   createScoringWindow();
