@@ -1,6 +1,6 @@
 {
   "name": "scoring-marker",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Display scoring",
   "main": "main.js",
   "email": "scoring-marker@nodomain.com",
@@ -32,7 +32,8 @@
     "copyright": "Sylvain DANGIN",
     "publish": [
       {
-        "provider": "github"
+        "provider": "github",
+        "releaseType": "draft"
       }
     ],
     "win": {
