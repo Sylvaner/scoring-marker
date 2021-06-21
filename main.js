@@ -21,6 +21,7 @@ function createControlsWindow () {
   controlsWindow.setMenuBarVisibility(false);
   controlsWindow.setResizable(false);
   controlsWindow.loadFile('controls.html');
+  controlsWindow.on('close', quitApp);
 }
 
 function createScoringWindow () {
@@ -36,6 +37,7 @@ function createScoringWindow () {
   });
   scoringWindow.setMenuBarVisibility(false);
   scoringWindow.loadFile('scoring.html');
+  scoringWindow.on('close', quitApp);
 }
 
 function destroyAndCreateScoringWindow () {
@@ -74,11 +76,11 @@ function initEvents () {
     }
   });
 
-  app.on('window-all-closed', function () {
-    if (process.platform !== 'darwin') {
-      app.quit();
-    }
-  });
+  app.on('window-all-closed', quitApp);
+}
+
+function quitApp () {
+  app.quit();
 }
 
 function initMessages () {
